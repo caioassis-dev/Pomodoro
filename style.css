@@ -13,9 +13,9 @@ body{
   align-items: center;
   width: 250px ;
   height: 450px;
-  background-color: rgb(49, 83, 17);
+  background-color: rgb(54, 71, 71);
   border-radius: 15px;
-  box-shadow: 2px 3px 7px rgb(40, 61, 20);
+  box-shadow: 2px 3px 7px rgb(0, 0, 0);
 }
 
 #visor{
@@ -23,21 +23,30 @@ body{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: rgba(186, 221, 157, 0.9);
+  border-style: double solid;
+  border-width: 5px;
+  background-color: rgba(70, 93, 102, 0.9);
   border-radius: 120px;
   width: 130px;
   height: 130px;
-  color: rgb(62, 100, 58);
+  color: rgb(172, 177, 221);
   font-size: 50px;
   margin-bottom: 85px;
   text-align: center;
 }
 
-.input {
+#input {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  background-color: rgba(70, 93, 102, 0.9);
+  color: rgb(172, 177, 221);
+  text-align: center;
+}
 
+input::placeholder {
+  color: rgb(172, 177, 221);
+  text-align: center;
 }
 
 .botoes {
@@ -45,4 +54,11 @@ body{
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+}
+
+#play, #pause, #stop{
+  height: 55px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
 }
