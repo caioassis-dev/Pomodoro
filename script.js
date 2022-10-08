@@ -35,7 +35,6 @@ play.addEventListener('click', function () {
   }
 });
 pause.addEventListener('click', function () {
-  console.log("FIM")
   clearInterval(cronometro)
   cronometro = undefined
 });
