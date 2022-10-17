@@ -1,6 +1,6 @@
 # POMODORO
 
-Uma calculadora com operações básicas de multiplicar, subtrair, dividir e somar criada com Javascript, Html e Css.
+A Técnica Pomodoro é um método de gerenciamento de tempo que consiste na utilização de um cronômetro para dividir o trabalho em períodos de 25 minutos, separados por breves intervalos. Esse pequeno aplicativo foi criado usando HTML, CSS E JAVASCRIPT.
 
 <div style="display:inline_block" >
   
