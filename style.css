@@ -1,38 +1,31 @@
-body{
+body {
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
   background-color: rgb(175, 175, 175);
 }
 
-#corpo{
-  margin-top: 35px;
+#corpo {
+  margin-top: 55px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 250px ;
+  min-width: 250px;
   height: 450px;
   background-color: rgb(54, 71, 71);
   border-radius: 15px;
   box-shadow: 2px 3px 7px rgb(0, 0, 0);
 }
 
-#visor{
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  border-style: double solid;
-  border-width: 5px;
-  background-color: rgba(70, 93, 102, 0.9);
-  border-radius: 120px;
-  width: 130px;
-  height: 130px;
+h1{
   color: rgb(172, 177, 221);
-  font-size: 50px;
-  margin-bottom: 85px;
-  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#visor {
+  color: rgb(172, 177, 221);
+  font-size: 11px;
 }
 
 #input {
@@ -42,6 +35,12 @@ body{
   background-color: rgba(70, 93, 102, 0.9);
   color: rgb(172, 177, 221);
   text-align: center;
+  border-radius: 15px;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  appearance: none;
 }
 
 input::placeholder {
@@ -56,9 +55,67 @@ input::placeholder {
   margin-bottom: 10px;
 }
 
-#play, #pause, #stop{
+#play,
+#pause,
+#stop {
   height: 55px;
   margin-top: 10px;
   display: flex;
   justify-content: space-around;
+}
+
+body {
+  background-color: #333;
+}
+
+#countdown {
+  margin: 10px;
+  height: 160px;
+  width: 160px;
+
+}
+
+svg circle#c2 {
+  stroke-dasharray: 113px;
+  stroke-dashoffset: 0px;
+  stroke: rgb(227, 233, 233);
+  animation: countdown 30s linear infinite forwards;
+}
+
+svg circle#c3 {
+  stroke: rgb(227, 233, 233);
+  opacity: .3;
+}
+
+circle#c1 {
+  fill: rgb(172, 177, 221);
+  animation: rotate 30s linear infinite forwards;
+}
+
+svg text {
+  font-family: sans-serif;
+  fill: rgb(172, 177, 221);
+  font-weight: bold;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+@keyframes countdown {
+  from {
+    stroke-dashoffset: 0px;
+  }
+
+  to {
+    stroke-dashoffset: 113px;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
