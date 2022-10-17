@@ -7,11 +7,22 @@ const input = document.getElementById('input');
 let cronometro = undefined;
 let flag = true;
 
-input.addEventListener('input', function(){
-  console.log(input.value)
-})
+function comecou() {
+  let audio = document.getElementById('audio');
+  audio.play();
+}
+
+function horaDaPausa(){
+  let alarme = document.getElementById('horaDaPausa');
+  alarme.play();
+}
 
 stop.addEventListener('click', function(){
+  document.getElementById('visor').style.display = "none";
+  document.getElementById('c1').style.display = "none";
+  document.getElementById('c2').style.display = "none";
+  document.getElementById('c3').style.display = "none";
+  comecou();
   visor.innerHTML = ''
   clearInterval(cronometro)
   cronometro = undefined
@@ -20,8 +31,12 @@ stop.addEventListener('click', function(){
 })
 
 play.addEventListener('click', function () {
+  document.getElementById('visor').style.display = "";
+  document.getElementById('c1').style.display = "";
+  document.getElementById('c2').style.display = "";
+  document.getElementById('c3').style.display = "";
+  comecou();
   visor.hidden = false
-  console.log("INICIO")
   if (cronometro === undefined) {
     if(flag == true) {
     tempoRestante = input.value * 60
@@ -34,7 +49,9 @@ play.addEventListener('click', function () {
     }, 1000);
   }
 });
+
 pause.addEventListener('click', function () {
+  comecou();
   clearInterval(cronometro)
   cronometro = undefined
 });
@@ -43,10 +60,47 @@ function renderVisor(segundos) {
   let minutos = Math.floor(segundos / 60);
   let segundosFormatado = `0${segundos % 60}`.substr(-2)
   visor.innerHTML = `${minutos}:${segundosFormatado}`
+  if(visor.innerHTML === '0:00') {
+    horaDaPausa()
+    fim()
+  }
 }
 
-visor.hidden = true
+function fim() {
+  visor.innerHTML = 'FIM'
+  document.getElementById('c1').style.display = "none";
+  document.getElementById('c2').style.display = "none";
+  clearInterval(cronometro)
+  cronometro = undefined
+  flag = true
+  input.value = ''
+}
 
-// SUBSTRING TROCAR PARA PADRAO ATUAL - DESAFIO DIFICIL
-// QUANDO ZERAR O TEMPO EM 00:00 - TOCAR UM ALARME - VER NO GOOGLE
-// AJUSTAR ESTILO AINDSA FALTA AJUSTAR OS BOTOES
+const pausar = document.getElementById('pause');
+pausar.addEventListener('click', () => {
+const animations = document.querySelectorAll('circle#c2');
+const animations1 = document.querySelectorAll('circle#c1');
+animations.forEach(animation => {
+  const running = animation.style.animationPlayState || 'running';
+  animation.style.animationPlayState = running === 'running' ? 'paused' : 'running';
+})
+animations1.forEach(animation => {
+  const running = animation.style.animationPlayState || 'running';
+  animation.style.animationPlayState = running === 'running' ? 'paused' : 'running';
+})
+});
+
+const inicio = document.getElementById('play');
+inicio.addEventListener('click', () => {
+const animations = document.querySelectorAll('circle#c2');
+const animations1 = document.querySelectorAll('circle#c1');
+animations.forEach(animation => {
+  const running = animation.style.animationPlayState || 'paused';
+  animation.style.animationPlayState = running != 'paused' ? 'paused' : 'running';
+})
+animations1.forEach(animation => {
+  const running = animation.style.animationPlayState || 'paused';
+  animation.style.animationPlayState = running != 'paused' ? 'paused' : 'running';
+})
+});
+visor.hidden = true
