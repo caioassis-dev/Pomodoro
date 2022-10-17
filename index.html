@@ -7,10 +7,23 @@
   <link rel="stylesheet" href="style.css">
   <title>Pomodoro</title>
 </head>
+
 <body> 
   <div id="corpo">
-  <div id="visor">
-  </div>
+    <div class="titulo">
+      <h1>POMODORO</h1>
+    </div>
+    <div id="countdown">
+      <svg viewBox="0 0 40 40">
+        <g transform="translate(20 20) rotate(-90)"
+          stroke-width="4" fill="none" stroke-linecap="round">
+          <circle style="display:none" id="c3" r="18"/>
+          <circle style="display:none" id="c2" r="18"/>
+          <circle style="display:none" id="c1" r="2" cx="18"/>
+        </g>
+        <text x="20" y="20" id="visor" style="display:none"></text>
+      </svg>
+    </div>
   <br>
   <div class="input">
     <input id="input" type="number" placeholder="Digite os minutos aqui">
@@ -18,13 +31,13 @@
   <br>
   <div class="botoes">
     <img id="play" src="assets\img\icons8-circled-play-doodle-96.png">
-    <!-- <button  >PLAY</button> -->
-    <!-- <button id="pause">PAUSE</button> -->
     <img id="pause" src="assets\img\icons8-pause-button-doodle-96.png"> 
-    <!-- <button id="stop">STOP</button> -->
     <img id="stop" src="assets\img\icons8-stop-circled-doodle-96.png"> 
-
   </div>
+</div>
+<div class="hidden">
+  <audio src="break.mp3" id="horaDaPausa"></audio>
+  <audio src="button-sound.mp3" id="audio"></audio>
 </div>
   <script src="script.js"></script>
 </body>
